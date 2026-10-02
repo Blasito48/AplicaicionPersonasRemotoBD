@@ -1,6 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Text;
 
 namespace AplicaicionPersonasRemotoBD
@@ -24,6 +25,26 @@ namespace AplicaicionPersonasRemotoBD
             {
                 excepcion = e.ToString();
                 return false;
+            }
+        }
+        public static DataTable Func_TraerDatos()
+        {
+            DataTable dt= new DataTable();
+            try
+            {
+                SqlConnection cnn = new SqlConnection(cadena);
+                //adpatador necesita una consulta sql y una conexion
+                string consulta = "Select * From Tbl_Persona";
+                SqlDataAdapter adap = new SqlDataAdapter(consulta,cnn);
+                //ejecuto el adaptador para que llene los datos en una tabla
+                adap.Fill(dt);
+                return dt;
+
+            }
+            catch (Exception e)
+            {
+                excepcion = e.ToString();
+                return dt;
             }
         }
     }

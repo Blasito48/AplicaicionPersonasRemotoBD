@@ -41,8 +41,8 @@
             button3 = new Button();
             button4 = new Button();
             button5 = new Button();
-            dataGridView1 = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            DgvPersonas = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)DgvPersonas).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -174,17 +174,17 @@
             button5.TextAlign = ContentAlignment.BottomCenter;
             button5.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // DgvPersonas
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(30, 301);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(716, 225);
-            dataGridView1.TabIndex = 13;
+            DgvPersonas.AllowUserToAddRows = false;
+            DgvPersonas.AllowUserToDeleteRows = false;
+            DgvPersonas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DgvPersonas.Location = new Point(30, 301);
+            DgvPersonas.Name = "DgvPersonas";
+            DgvPersonas.ReadOnly = true;
+            DgvPersonas.RowHeadersWidth = 62;
+            DgvPersonas.Size = new Size(716, 225);
+            DgvPersonas.TabIndex = 13;
             // 
             // Form1
             // 
@@ -192,7 +192,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(762, 540);
             ControlBox = false;
-            Controls.Add(dataGridView1);
+            Controls.Add(DgvPersonas);
             Controls.Add(button3);
             Controls.Add(button4);
             Controls.Add(button5);
@@ -209,7 +209,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Gestion Personas";
             Load += Form1_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)DgvPersonas).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -227,6 +227,6 @@
         private Button button3;
         private Button button4;
         private Button button5;
-        private DataGridView dataGridView1;
+        private DataGridView DgvPersonas;
     }
 }

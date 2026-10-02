@@ -1,3 +1,5 @@
+using System.Data;
+
 namespace AplicaicionPersonasRemotoBD
 {
     public partial class Form1 : Form
@@ -27,7 +29,10 @@ namespace AplicaicionPersonasRemotoBD
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            DataTable dt = new DataTable();
+            dt = ClaseFunciones.Func_TraerDatos();
+            //muestro el datatable en datagrid
+            DgvPersonas.DataSource = dt;
         }
     }
 }
