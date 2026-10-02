@@ -28,12 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            BtnConectar = new Button();
+            SuspendLayout();
+            // 
+            // BtnConectar
+            // 
+            BtnConectar.Location = new Point(66, 111);
+            BtnConectar.Name = "BtnConectar";
+            BtnConectar.Size = new Size(156, 60);
+            BtnConectar.TabIndex = 0;
+            BtnConectar.Text = "Conectar";
+            BtnConectar.UseVisualStyleBackColor = true;
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(BtnConectar);
+            Name = "Form1";
             Text = "Form1";
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Button BtnConectar;
     }
 }
