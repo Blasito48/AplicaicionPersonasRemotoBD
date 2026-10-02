@@ -33,12 +33,13 @@
             // 
             // BtnConectar
             // 
-            BtnConectar.Location = new Point(66, 111);
+            BtnConectar.Location = new Point(43, 87);
             BtnConectar.Name = "BtnConectar";
             BtnConectar.Size = new Size(156, 60);
             BtnConectar.TabIndex = 0;
             BtnConectar.Text = "Conectar";
             BtnConectar.UseVisualStyleBackColor = true;
+            BtnConectar.Click += BtnConectar_Click;
             // 
             // Form1
             // 
