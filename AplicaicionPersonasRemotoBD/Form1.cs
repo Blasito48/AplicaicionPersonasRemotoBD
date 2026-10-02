@@ -18,5 +18,16 @@ namespace AplicaicionPersonasRemotoBD
                 MessageBox.Show("Error Excepcion: " + ClaseFunciones.excepcion);
             }
         }
+
+        private void TxtID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permite solo dígitos y la tecla Backspace (borrar)
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
