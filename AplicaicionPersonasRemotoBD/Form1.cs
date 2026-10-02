@@ -90,5 +90,30 @@ namespace AplicaicionPersonasRemotoBD
             }
 
         }
+
+        private void BtnGuardar_Click(object sender, EventArgs e)
+        {
+            //valido que usuario llene los datos
+            if (TxtID.Text.Length > 0 && TxtNombre.Text.Length > 0 && TxtTelefono.Text.Length>0)
+            {
+                if (ClaseFunciones.Func_Insertar(Convert.ToInt64 (TxtID.Text),TxtNombre.Text,TxtTelefono.Text))
+                {
+                    MessageBox.Show("Persona Guardada", "Felicitaciones!!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DataTable dt = new DataTable();
+                    dt = ClaseFunciones.Func_TraerDatos();
+                    //muestro el datatable en datagrid
+                    DgvPersonas.DataSource = dt;
+                    BtnCancelar_Click(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show("Hubo una Excepcion: "+ClaseFunciones.excepcion, "Excepcion!!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Falta Ingresar Datos!!!", "Error!!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

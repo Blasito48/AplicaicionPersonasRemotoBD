@@ -125,6 +125,7 @@
             BtnGuardar.Text = "Guardar";
             BtnGuardar.TextAlign = ContentAlignment.BottomCenter;
             BtnGuardar.UseVisualStyleBackColor = true;
+            BtnGuardar.Click += BtnGuardar_Click;
             // 
             // BtnCancelar
             // 
