@@ -36,11 +36,11 @@
             TxtTelefono = new TextBox();
             label3 = new Label();
             BtnNuevo = new Button();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
-            button5 = new Button();
+            BtnGuardar = new Button();
+            BtnCancelar = new Button();
+            BtnSalir = new Button();
+            BtnEliminar = new Button();
+            BtnEditar = new Button();
             DgvPersonas = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)DgvPersonas).BeginInit();
             SuspendLayout();
@@ -111,68 +111,71 @@
             BtnNuevo.Text = "Nuevo";
             BtnNuevo.TextAlign = ContentAlignment.BottomCenter;
             BtnNuevo.UseVisualStyleBackColor = true;
+            BtnNuevo.Click += BtnNuevo_Click;
             // 
-            // button1
+            // BtnGuardar
             // 
-            button1.Enabled = false;
-            button1.Image = (Image)resources.GetObject("button1.Image");
-            button1.ImageAlign = ContentAlignment.TopCenter;
-            button1.Location = new Point(151, 190);
-            button1.Name = "button1";
-            button1.Size = new Size(112, 87);
-            button1.TabIndex = 8;
-            button1.Text = "Guardar";
-            button1.TextAlign = ContentAlignment.BottomCenter;
-            button1.UseVisualStyleBackColor = true;
+            BtnGuardar.Enabled = false;
+            BtnGuardar.Image = (Image)resources.GetObject("BtnGuardar.Image");
+            BtnGuardar.ImageAlign = ContentAlignment.TopCenter;
+            BtnGuardar.Location = new Point(151, 190);
+            BtnGuardar.Name = "BtnGuardar";
+            BtnGuardar.Size = new Size(112, 87);
+            BtnGuardar.TabIndex = 8;
+            BtnGuardar.Text = "Guardar";
+            BtnGuardar.TextAlign = ContentAlignment.BottomCenter;
+            BtnGuardar.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // BtnCancelar
             // 
-            button2.Enabled = false;
-            button2.Image = (Image)resources.GetObject("button2.Image");
-            button2.ImageAlign = ContentAlignment.TopCenter;
-            button2.Location = new Point(269, 190);
-            button2.Name = "button2";
-            button2.Size = new Size(112, 87);
-            button2.TabIndex = 9;
-            button2.Text = "Cancalar";
-            button2.TextAlign = ContentAlignment.BottomCenter;
-            button2.UseVisualStyleBackColor = true;
+            BtnCancelar.Enabled = false;
+            BtnCancelar.Image = (Image)resources.GetObject("BtnCancelar.Image");
+            BtnCancelar.ImageAlign = ContentAlignment.TopCenter;
+            BtnCancelar.Location = new Point(269, 190);
+            BtnCancelar.Name = "BtnCancelar";
+            BtnCancelar.Size = new Size(112, 87);
+            BtnCancelar.TabIndex = 9;
+            BtnCancelar.Text = "Cancalar";
+            BtnCancelar.TextAlign = ContentAlignment.BottomCenter;
+            BtnCancelar.UseVisualStyleBackColor = true;
+            BtnCancelar.Click += BtnCancelar_Click;
             // 
-            // button3
+            // BtnSalir
             // 
-            button3.Image = (Image)resources.GetObject("button3.Image");
-            button3.ImageAlign = ContentAlignment.TopCenter;
-            button3.Location = new Point(634, 190);
-            button3.Name = "button3";
-            button3.Size = new Size(112, 87);
-            button3.TabIndex = 12;
-            button3.Text = "Salir";
-            button3.TextAlign = ContentAlignment.BottomCenter;
-            button3.UseVisualStyleBackColor = true;
+            BtnSalir.Image = (Image)resources.GetObject("BtnSalir.Image");
+            BtnSalir.ImageAlign = ContentAlignment.TopCenter;
+            BtnSalir.Location = new Point(634, 190);
+            BtnSalir.Name = "BtnSalir";
+            BtnSalir.Size = new Size(112, 87);
+            BtnSalir.TabIndex = 12;
+            BtnSalir.Text = "Salir";
+            BtnSalir.TextAlign = ContentAlignment.BottomCenter;
+            BtnSalir.UseVisualStyleBackColor = true;
+            BtnSalir.Click += BtnSalir_Click;
             // 
-            // button4
+            // BtnEliminar
             // 
-            button4.Image = (Image)resources.GetObject("button4.Image");
-            button4.ImageAlign = ContentAlignment.TopCenter;
-            button4.Location = new Point(516, 190);
-            button4.Name = "button4";
-            button4.Size = new Size(112, 87);
-            button4.TabIndex = 11;
-            button4.Text = "Eliminar";
-            button4.TextAlign = ContentAlignment.BottomCenter;
-            button4.UseVisualStyleBackColor = true;
+            BtnEliminar.Image = (Image)resources.GetObject("BtnEliminar.Image");
+            BtnEliminar.ImageAlign = ContentAlignment.TopCenter;
+            BtnEliminar.Location = new Point(516, 190);
+            BtnEliminar.Name = "BtnEliminar";
+            BtnEliminar.Size = new Size(112, 87);
+            BtnEliminar.TabIndex = 11;
+            BtnEliminar.Text = "Eliminar";
+            BtnEliminar.TextAlign = ContentAlignment.BottomCenter;
+            BtnEliminar.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // BtnEditar
             // 
-            button5.Image = (Image)resources.GetObject("button5.Image");
-            button5.ImageAlign = ContentAlignment.TopCenter;
-            button5.Location = new Point(395, 190);
-            button5.Name = "button5";
-            button5.Size = new Size(112, 87);
-            button5.TabIndex = 10;
-            button5.Text = "Editar";
-            button5.TextAlign = ContentAlignment.BottomCenter;
-            button5.UseVisualStyleBackColor = true;
+            BtnEditar.Image = (Image)resources.GetObject("BtnEditar.Image");
+            BtnEditar.ImageAlign = ContentAlignment.TopCenter;
+            BtnEditar.Location = new Point(395, 190);
+            BtnEditar.Name = "BtnEditar";
+            BtnEditar.Size = new Size(112, 87);
+            BtnEditar.TabIndex = 10;
+            BtnEditar.Text = "Editar";
+            BtnEditar.TextAlign = ContentAlignment.BottomCenter;
+            BtnEditar.UseVisualStyleBackColor = true;
             // 
             // DgvPersonas
             // 
@@ -193,11 +196,11 @@
             ClientSize = new Size(762, 540);
             ControlBox = false;
             Controls.Add(DgvPersonas);
-            Controls.Add(button3);
-            Controls.Add(button4);
-            Controls.Add(button5);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(BtnSalir);
+            Controls.Add(BtnEliminar);
+            Controls.Add(BtnEditar);
+            Controls.Add(BtnCancelar);
+            Controls.Add(BtnGuardar);
             Controls.Add(BtnNuevo);
             Controls.Add(TxtTelefono);
             Controls.Add(label3);
@@ -222,11 +225,11 @@
         private TextBox TxtTelefono;
         private Label label3;
         private Button BtnNuevo;
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private Button button4;
-        private Button button5;
+        private Button BtnGuardar;
+        private Button BtnCancelar;
+        private Button BtnSalir;
+        private Button BtnEliminar;
+        private Button BtnEditar;
         private DataGridView DgvPersonas;
     }
 }

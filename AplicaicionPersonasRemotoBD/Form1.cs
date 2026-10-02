@@ -34,5 +34,61 @@ namespace AplicaicionPersonasRemotoBD
             //muestro el datatable en datagrid
             DgvPersonas.DataSource = dt;
         }
+
+        private void BtnNuevo_Click(object sender, EventArgs e)
+        {
+            //habilito los texbox
+            TxtID.Enabled = true;
+            TxtNombre.Enabled = true;
+            TxtTelefono.Enabled = true;
+            //limpiar textbox
+            TxtID.Clear();
+            TxtNombre.Clear();
+            TxtTelefono.Clear();
+            //habilito el guarda y cancelar
+            BtnGuardar.Enabled = true;
+            BtnCancelar.Enabled = true;
+            //deshabilito los demas botones
+            BtnNuevo.Enabled = false;
+            BtnEditar.Enabled = false;
+            BtnEliminar.Enabled = false;
+            BtnSalir.Enabled = false;
+            //mando el foco al txtID
+            TxtID.Focus();
+        }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            //deshabilito los texbox
+            TxtID.Enabled = false;
+            TxtNombre.Enabled = false;
+            TxtTelefono.Enabled = false;
+            //limpiar textbox
+            TxtID.Clear();
+            TxtNombre.Clear();
+            TxtTelefono.Clear();
+            //deshabilito el guardar y cancelar
+            BtnGuardar.Enabled = false;
+            BtnCancelar.Enabled = false;
+            //habilito los demas botones
+            BtnNuevo.Enabled = true;
+            BtnEditar.Enabled = true;
+            BtnEliminar.Enabled = true;
+            BtnSalir.Enabled = true;
+            //mando el foco
+            BtnNuevo.Focus();
+        }
+
+        private void BtnSalir_Click(object sender, EventArgs e)
+        {
+            //creo un dialog result    
+            DialogResult Rpta = new DialogResult();
+            Rpta = MessageBox.Show("Desea Salir de la Aplicacion ?", "Pregunta", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (Rpta == DialogResult.OK)
+            {
+                Application.Exit();
+            }
+
+        }
     }
 }
