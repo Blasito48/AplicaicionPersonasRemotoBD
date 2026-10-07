@@ -211,7 +211,8 @@ namespace AplicaicionPersonasRemotoBD
                 string name = dt.Rows[i]["Nombre"].ToString();
                 string tel = dt.Rows[i]["Telefono"].ToString();
                 e.Graphics.DrawString(id.ToString(), fuente, new SolidBrush(Color.Black), new PointF(50, fila));
-                fila = fila + 20;
+                fila = fila + 30;
+
             }
             
             //final de pagina
