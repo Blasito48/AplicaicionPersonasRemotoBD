@@ -1,9 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
-using Microsoft.VisualBasic.Logging;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Text;
 
 namespace AplicaicionPersonasRemotoBD
 {
@@ -56,6 +52,28 @@ namespace AplicaicionPersonasRemotoBD
                 SqlConnection cnn = new SqlConnection(cadena);
                 //adpatador necesita una consulta sql y una conexion
                 string consulta = "Insert Into Tbl_Persona Values (" + id + ",'" + name + "','" + tel +"')";
+                SqlDataAdapter adap = new SqlDataAdapter(consulta, cnn);
+                //ejecuto el adaptador para que llene los datos en una tabla
+                adap.Fill(dt);
+                return true;
+
+            }
+            catch (Exception e)
+            {
+                excepcion = e.ToString();
+                return false;
+            }
+        }
+        //FUNCION ELIMINAR
+
+        public static bool Func_Eliminar(long id)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlConnection cnn = new SqlConnection(cadena);
+                //adpatador necesita una consulta sql y una conexion
+                string consulta = "Delete From Tbl_Persona Where ID=" + id ;
                 SqlDataAdapter adap = new SqlDataAdapter(consulta, cnn);
                 //ejecuto el adaptador para que llene los datos en una tabla
                 adap.Fill(dt);
