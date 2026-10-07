@@ -1,3 +1,4 @@
+using System.CodeDom;
 using System.Data;
 
 namespace AplicaicionPersonasRemotoBD
@@ -187,6 +188,34 @@ namespace AplicaicionPersonasRemotoBD
             BtnSalir.Enabled = false;
             //mando el foco al txtID
             TxtNombre.Focus();
+        }
+
+        private void BtnImprimir_Click(object sender, EventArgs e)
+        {
+            printDocument1.Print();
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Font fuente = new Font("Courier New", 13, FontStyle.Bold);
+            DataTable dt = new DataTable();
+            dt = ClaseFunciones.Func_TraerDatos();
+            //titulo
+            e.Graphics.DrawString("Listado Personas", fuente, new SolidBrush(Color.Black), new PointF(300, 10));
+            e.Graphics.DrawString("ID", fuente, new SolidBrush(Color.Black), new PointF(50, 50));
+            //recorro la tabla
+            int fila = 80;
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                long id = Convert.ToInt64(dt.Rows[i]["ID"].ToString());
+                string name = dt.Rows[i]["Nombre"].ToString();
+                string tel = dt.Rows[i]["Telefono"].ToString();
+                e.Graphics.DrawString(id.ToString(), fuente, new SolidBrush(Color.Black), new PointF(50, fila));
+                fila = fila + 20;
+            }
+            
+            //final de pagina
+            e.HasMorePages = false;
         }
     }
 }

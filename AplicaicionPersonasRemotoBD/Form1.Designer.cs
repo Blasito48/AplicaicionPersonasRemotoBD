@@ -42,6 +42,8 @@
             BtnEliminar = new Button();
             BtnEditar = new Button();
             DgvPersonas = new DataGridView();
+            BtnImprimir = new Button();
+            printDocument1 = new System.Drawing.Printing.PrintDocument();
             ((System.ComponentModel.ISupportInitialize)DgvPersonas).BeginInit();
             SuspendLayout();
             // 
@@ -192,12 +194,30 @@
             DgvPersonas.Size = new Size(716, 225);
             DgvPersonas.TabIndex = 13;
             // 
+            // BtnImprimir
+            // 
+            BtnImprimir.Image = (Image)resources.GetObject("BtnImprimir.Image");
+            BtnImprimir.ImageAlign = ContentAlignment.TopCenter;
+            BtnImprimir.Location = new Point(634, 97);
+            BtnImprimir.Name = "BtnImprimir";
+            BtnImprimir.Size = new Size(112, 87);
+            BtnImprimir.TabIndex = 14;
+            BtnImprimir.Text = "Imprimir";
+            BtnImprimir.TextAlign = ContentAlignment.BottomCenter;
+            BtnImprimir.UseVisualStyleBackColor = true;
+            BtnImprimir.Click += BtnImprimir_Click;
+            // 
+            // printDocument1
+            // 
+            printDocument1.PrintPage += printDocument1_PrintPage;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(762, 540);
             ControlBox = false;
+            Controls.Add(BtnImprimir);
             Controls.Add(DgvPersonas);
             Controls.Add(BtnSalir);
             Controls.Add(BtnEliminar);
@@ -234,5 +254,7 @@
         private Button BtnEliminar;
         private Button BtnEditar;
         private DataGridView DgvPersonas;
+        private Button BtnImprimir;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }
