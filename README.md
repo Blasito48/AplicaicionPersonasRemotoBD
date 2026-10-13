@@ -1,0 +1,1 @@
+Esta es una aplicacion WindowsForm desarrollada en C# para el aprendizaje de las clases Connection, Command, DataAdapter, DataTable donde se realiza un CRUD sencilo con una Base de Datos SQL Sever hospedada en la Nube (MonsterASP o Soome) 
