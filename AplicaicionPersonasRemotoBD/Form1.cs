@@ -1,5 +1,10 @@
 using System.CodeDom;
 using System.Data;
+using System.Diagnostics;
+
+//uso la libreria de Excel
+using ClosedXML.Excel;
+using DocumentFormat.OpenXml.Office.CustomUI;
 
 namespace AplicaicionPersonasRemotoBD
 {
@@ -203,7 +208,7 @@ namespace AplicaicionPersonasRemotoBD
             //titulo
             e.Graphics.DrawString("Listado Personas", fuente, new SolidBrush(Color.Black), new PointF(300, 10));
             e.Graphics.DrawString("ID", fuente, new SolidBrush(Color.Black), new PointF(50, 50));
-            e.Graphics.DrawLine( new Pen(Color.Aqua,20), 0, 0, 300, 0);
+            e.Graphics.DrawLine(new Pen(Color.Aqua, 20), 0, 0, 300, 0);
             //recorro la tabla
             int fila = 80;
             for (int i = 0; i < dt.Rows.Count; i++)
@@ -215,9 +220,69 @@ namespace AplicaicionPersonasRemotoBD
                 fila = fila + 20;
 
             }
-            
+
             //final de pagina
             e.HasMorePages = false;
+        }
+
+        private void BtnExcel_Click(object sender, EventArgs e)
+        {
+            //creo un libro de excel
+            XLWorkbook libro = new XLWorkbook();
+            //crea una hoja de ese libro
+            var hoja = libro.Worksheets.Add("Personas");
+            //datos
+            hoja.Cell("A1").Value = "Listado Personas";
+            hoja.Cell("A2").Value = "ID";
+            hoja.Cell("B2").Value = "Nombre";
+            hoja.Cell("C2").Value = "Telefono";
+            //creo un datatable y lo llamo de las funciones
+            DataTable dt = ClaseFunciones.Func_TraerDatos();
+            //variable para las filas los datos comienzan la fila 3
+            int fila = 3;
+            //recorre el datatable
+            for (int i = 0; i<dt.Rows.Count; i++)
+            {
+                //leer datatable
+                hoja.Cell("A" + fila).Value = dt.Rows[i]["ID"].ToString();
+                hoja.Cell("B" + fila).Value = dt.Rows[i]["Nombre"].ToString();
+                hoja.Cell("C" + fila).Value = dt.Rows[i]["Telefono"].ToString();
+                fila++;
+            }
+            //combinar y centrar la 1er fila
+            var rangotitulo = hoja.Range("A1:C1");
+            rangotitulo.Merge();
+            //rango encabezados
+            var rangoencabezados = hoja.Range("A2:C2");
+            // Centrar horizontalmente
+            rangoencabezados.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+            // Centrar horizontalmente
+            rangotitulo.Style.Alignment.Horizontal =XLAlignmentHorizontalValues.Center;
+            // Centrar verticalmente
+            rangotitulo.Style.Alignment.Vertical =XLAlignmentVerticalValues.Center;
+            //negrilla a los titulos
+            hoja.Cell("A1").Style.Font.Bold = true;
+            hoja.Cell("A2").Style.Font.Bold = true;
+            hoja.Cell("B2").Style.Font.Bold = true;
+            hoja.Cell("C2").Style.Font.Bold = true;
+            //auto ajusto las columnas
+            hoja.Columns().AdjustToContents();
+            //le pongo bordes
+            var rango = hoja.Range("A2:C"+(fila-1));
+            rango.Style.Border.OutsideBorder = XLBorderStyleValues.Thin;
+            rango.Style.Border.InsideBorder = XLBorderStyleValues.Thin;
+            //guardo el libro de excel
+            libro.SaveAs(@"D:\ListadoPersonas.xlsx");
+            //prengunto si el libro existe
+            if (File.Exists("D:\\ListadoPersonas.xlsx"))
+            {
+                Process p = new()
+                {
+                    StartInfo = new("D:\\ListadoPersonas.xlsx")
+                    { UseShellExecute = true }
+                };
+                p.Start();
+            }
         }
     }
 }
