@@ -203,6 +203,7 @@ namespace AplicaicionPersonasRemotoBD
             //titulo
             e.Graphics.DrawString("Listado Personas", fuente, new SolidBrush(Color.Black), new PointF(300, 10));
             e.Graphics.DrawString("ID", fuente, new SolidBrush(Color.Black), new PointF(50, 50));
+            e.Graphics.DrawLine( new Pen(Color.Aqua,20), 0, 0, 300, 0);
             //recorro la tabla
             int fila = 80;
             for (int i = 0; i < dt.Rows.Count; i++)
@@ -211,7 +212,7 @@ namespace AplicaicionPersonasRemotoBD
                 string name = dt.Rows[i]["Nombre"].ToString();
                 string tel = dt.Rows[i]["Telefono"].ToString();
                 e.Graphics.DrawString(id.ToString(), fuente, new SolidBrush(Color.Black), new PointF(50, fila));
-                fila = fila + 30;
+                fila = fila + 20;
 
             }
             

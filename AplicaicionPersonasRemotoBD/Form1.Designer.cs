@@ -44,6 +44,7 @@
             DgvPersonas = new DataGridView();
             BtnImprimir = new Button();
             printDocument1 = new System.Drawing.Printing.PrintDocument();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)DgvPersonas).BeginInit();
             SuspendLayout();
             // 
@@ -211,12 +212,25 @@
             // 
             printDocument1.PrintPage += printDocument1_PrintPage;
             // 
+            // button1
+            // 
+            button1.Image = (Image)resources.GetObject("button1.Image");
+            button1.ImageAlign = ContentAlignment.TopCenter;
+            button1.Location = new Point(638, 4);
+            button1.Name = "button1";
+            button1.Size = new Size(112, 87);
+            button1.TabIndex = 15;
+            button1.Text = "Imprimir";
+            button1.TextAlign = ContentAlignment.BottomCenter;
+            button1.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(762, 540);
             ControlBox = false;
+            Controls.Add(button1);
             Controls.Add(BtnImprimir);
             Controls.Add(DgvPersonas);
             Controls.Add(BtnSalir);
@@ -256,5 +270,6 @@
         private DataGridView DgvPersonas;
         private Button BtnImprimir;
         private System.Drawing.Printing.PrintDocument printDocument1;
+        private Button button1;
     }
 }
